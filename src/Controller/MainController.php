@@ -116,7 +116,7 @@ class MainController extends AbstractController
     /*  la fonction pour generer  le pdf a imprimer   */
 
 
-    #[Route('/shipment/print/{id}', name: 'shipment_pdf')]
+    #[Route('/shipment/print/cmr/{id}', name: 'shipment_pdf')]
 
     public function generatePdf(Shipment $shipment): Response
     {
