@@ -1,4 +1,4 @@
-/* const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer');
 
 // Récupération des arguments passés depuis Symfony
 const shipmentId = process.argv[2]; // ID de l'expédition
@@ -27,6 +27,6 @@ if (!shipmentId || !outputPath) {
 
     console.log(`PDF généré avec succès : ${outputPath}`);
     await browser.close(); // Fermer le navigateur
-})(); */
+})();
 
 
