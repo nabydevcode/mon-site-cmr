@@ -15,22 +15,21 @@ services:
     networks:
       - symfony_network
     environment:
-      DATABASE_URL: "mysql://root:root@database:3306/admini?serverVersion=8.0.32&charset=utf8mb4"
+      DATABASE_URL: "postgresql://root:root@database:5433/admini?serverVersion=15&charset=utf8"
 
   database:
-    image: mysql:8.0
+    image: postgres:15
     container_name: symfony_db
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: admini
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: admini
     ports:
-      - "3306:3306"
+      - "5433:5432"
     networks:
       - symfony_network
     volumes:
-      - db_data:/var/lib/mysql
+      - db_data:/var/lib/postgresql/data
 
 networks:
   symfony_network:

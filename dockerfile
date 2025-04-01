@@ -15,7 +15,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Copier les fichiers de ton projet dans le conteneur
 WORKDIR /var/www/html
-COPY . /var/www/html
+COPY --chown=www-data:www-data . /var/www/html
 
 # Donner les permissions nécessaires
 RUN chown -R www-data:www-data /var/www/html

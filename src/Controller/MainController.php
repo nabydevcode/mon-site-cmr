@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Shipment;
 use App\Entity\User;
+use App\Entity\Users;
 use App\Form\RechercheType;
 use App\Form\ShipmentType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -39,16 +40,15 @@ class MainController extends AbstractController
     public function index(EntityManagerInterface $em, UserPasswordHasherInterface $hasher): Response
     {
 
-        /* $user = new User();
-        $user->setEmail('naby@gmail.com');
+       /*  $user = new Users();
+        $user->setEmail('naby@123gmail.com');
         $user->setUsername('naby');
         $user->setPassword($hasher->hashPassword($user, 'toure'));
-
-        // Si tu souhaites ajouter des rôles, par exemple ROLE_USER :
+        $user->setIsVerified(true);
         $user->setRoles(['ROLE_USER']);
-
+        
         $em->persist($user);
-        $em->flush(); */
+        $em->flush();  */
 
         return $this->render('main/index.html.twig', [
             'controller_name' => 'MainController',
