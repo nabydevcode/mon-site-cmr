@@ -70,7 +70,7 @@ class MainController extends AbstractController
             $em->flush();
 
             $this->addFlash('success', "CMR creer avec succes ");
-            return $this->redirectToRoute('app_main');
+            return $this->redirectToRoute('shipment_show', ['id' => $shipment->getId()]);
         }
         return $this->render('main/formulaire.html.twig', ['form' => $form->createView()]);
     }
