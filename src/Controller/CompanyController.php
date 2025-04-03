@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class CompanyController extends AbstractController
 {
-    #[Route('/company', name: 'app_company', methods: ['GET'])]
+    #[Route('/company', name: 'app_company', methods: ['GET','POST'])]
     public function index(): Response
     {
         return $this->render('company/index.html.twig', [
