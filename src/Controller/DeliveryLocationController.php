@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class DeliveryLocationController extends AbstractController
 {
-    #[Route('/delivery/location', name: 'app_delivery_location')]
+    #[Route('/delivery/location', name: 'app_delivery_location', methods: ['GET', 'POST'])]
     public function index(): Response
     {
         return $this->render('delivery_location/index.html.twig', [
@@ -21,7 +21,7 @@ final class DeliveryLocationController extends AbstractController
     }
 
 
-    #[Route('/delivery/formulaire', name: 'app_delivery_formulaire')]
+    #[Route('/delivery/formulaire', name: 'app_delivery_formulaire', methods: ['GET', 'POST'])]
     public function formulaire(Request $request, EntityManagerInterface $em): Response
     {
         $delivery_location = new DeliveryLocation();

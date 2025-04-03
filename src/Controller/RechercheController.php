@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class RechercheController extends AbstractController
 {
-    #[Route('/recherche', name: 'app_recherche')]
+    #[Route('/recherche', name: 'app_recherche', methods: ['GET', 'POST'])]
     public function index(Request $request): Response
     {
         $form = $this->createForm(RechercheType::class);
@@ -31,7 +31,7 @@ final class RechercheController extends AbstractController
         ]);
     }
 
-    #[Route('/resultat/{ref}', name: 'app_resultat')]
+    #[Route('/resultat/{ref}', name: 'app_resultat', methods: ['GET', 'POST'])]
     public function search(string $ref, EntityManagerInterface $em): Response
     {
         // Recherche en base de données

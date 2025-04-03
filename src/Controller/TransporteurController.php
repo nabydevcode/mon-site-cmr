@@ -12,14 +12,14 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class TransporteurController extends AbstractController
 {
-    #[Route('/transporteur', name: 'app_transporteur')]
+    #[Route('/transporteur', name: 'app_transporteur', methods: ['GET', 'POST'])]
     public function index(): Response
     {
         return $this->render('transporteur/index.html.twig', [
             'controller_name' => 'TransporteurController',
         ]);
     }
-    #[Route('/transporteur/formulaire', name: 'app_transporteur_formulaire')]
+    #[Route('/transporteur/formulaire', name: 'app_transporteur_formulaire', methods: ['GET', 'POST'])]
     public function formulaire(Request $request, EntityManagerInterface $em): Response
     {
         $transport = new Transporteur();

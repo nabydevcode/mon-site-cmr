@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class CompanyController extends AbstractController
 {
-    #[Route('/company', name: 'app_company')]
+    #[Route('/company', name: 'app_company', methods: ['GET', 'POST'])]
     public function index(): Response
     {
         return $this->render('company/index.html.twig', [
@@ -20,7 +20,7 @@ final class CompanyController extends AbstractController
         ]);
     }
 
-    #[Route('/formulaire', name: 'form_company')]
+    #[Route('/formulaire', name: 'form_company', methods: ['GET', 'POST'])]
 
     public function formulaire(Request $request, EntityManagerInterface $em): Response
     {

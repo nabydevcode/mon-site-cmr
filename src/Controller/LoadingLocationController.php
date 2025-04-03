@@ -12,14 +12,14 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class LoadingLocationController extends AbstractController
 {
-    #[Route('/loading/location', name: 'app_loading_location')]
+    #[Route('/loading/location', name: 'app_loading_location', methods: ['GET', 'POST'])]
     public function index(): Response
     {
         return $this->render('loading_location/index.html.twig', [
             'controller_name' => 'LoadingLocationController',
         ]);
     }
-    #[Route('/loading/formulaire', name: 'app_loading_formualaire')]
+    #[Route('/loading/formulaire', name: 'app_loading_formualaire', methods: ['GET', 'POST'])]
     public function formulaire(Request $request, EntityManagerInterface $em): Response
     {
         $loading = new LoadingLocation();

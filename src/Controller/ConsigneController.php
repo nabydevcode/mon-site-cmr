@@ -12,14 +12,14 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class ConsigneController extends AbstractController
 {
-    #[Route('/consigne', name: 'app_consigne')]
+    #[Route('/consigne', name: 'app_consigne', methods: ['GET', 'POST'])]
     public function index(): Response
     {
         return $this->render(
             'consigne/index.html.twig'
         );
     }
-    #[Route('/consigne/formulaire', name: 'consigne_formulaire')]
+    #[Route('/consigne/formulaire', name: 'consigne_formulaire', methods: ['GET', 'POST'])]
     public function formulaire(Request $request, EntityManagerInterface $em): Response
     {
         $consigne = new Consignee();

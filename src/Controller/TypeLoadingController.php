@@ -12,14 +12,14 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class TypeLoadingController extends AbstractController
 {
-    #[Route('/type/loading', name: 'app_type_loading')]
+    #[Route('/type/loading', name: 'app_type_loading' , methods: ['GET', 'POST'])]
     public function index(): Response
     {
         return $this->render('type_loading/index.html.twig', [
             'controller_name' => 'TypeLoadingController',
         ]);
     }
-    #[Route('/type/loading/formulaire', name: 'app_type_loading_formulaire')]
+    #[Route('/type/loading/formulaire', name: 'app_type_loading_formulaire', methods: ['GET', 'POST'])]
     public function formulaire(Request $request, EntityManagerInterface $em): Response
     {
         $typeloading = new TypeLoading();
