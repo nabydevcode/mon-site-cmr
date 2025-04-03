@@ -57,7 +57,8 @@ class MainController extends AbstractController
     }
 
     /*  formulaire pour creer le cmr  */
-    #[Route('/main/formulaire', name: 'app_main_formulaire')]
+
+    #[Route('/main/formulaire', name: 'app_main_formulaire', methods: ['GET', 'POST'])]
     #[IsGranted('ROLE_USER')]
     public function formulaire(Request $request, EntityManagerInterface $em): Response
     {
@@ -75,7 +76,7 @@ class MainController extends AbstractController
         return $this->render('main/formulaire.html.twig', ['form' => $form->createView()]);
     }
     /*  pour afficher le cmr creer  en fonction de L'ID donner   */
-    #[Route('/shipment/{id}', name: 'shipment_show')]
+    #[Route('/shipment/{id}', name: 'shipment_show' , methods: ['GET', 'POST'])]
     public function show(Shipment $shipment): Response
     {
 
@@ -86,7 +87,7 @@ class MainController extends AbstractController
         }
         return $this->render('main/show.html.twig', ['shipment' => $shipment]);
     }
-    #[Route('/shipment/update/{id}', name: 'shipment_update')]
+    #[Route('/shipment/update/{id}', name: 'shipment_update' , methods: ['GET', 'POST'])]
 
     public function update(Shipment $shipment, Request $request, EntityManagerInterface $em): Response
     {
@@ -116,7 +117,7 @@ class MainController extends AbstractController
     /*  la fonction pour generer  le pdf a imprimer   */
 
 
-    #[Route('/shipment/print/cmr/{id}', name: 'shipment_pdf')]
+    #[Route('/shipment/print/cmr/{id}', name: 'shipment_pdf', , methods: ['GET', 'POST'])]
 
     public function generatePdf(Shipment $shipment): Response
     {
@@ -142,7 +143,7 @@ class MainController extends AbstractController
     }
 
     /* le pdf prete a imprimer   */
-    #[Route('/shipment/pdf/{id}', name: 'shipment_print_pdf')]
+    #[Route('/shipment/pdf/{id}', name: 'shipment_print_pdf', methods: ['GET', 'POST'])]
 
     public function printPdf(Shipment $shipment): Response
     {
